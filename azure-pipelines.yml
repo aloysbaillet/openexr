@@ -1,0 +1,22 @@
+# C/C++ with GCC
+# Build your C/C++ project with GCC using make.
+# Add steps that publish test results, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/c-cpp/gcc
+
+trigger:
+- testing_azure
+
+variables:
+  aswfdocker: docker run -it -v $(Agent.BuildDirectory):/home/aswf/project aloysbaillet/aswf-vfx2018-conan 
+
+jobs:
+- job: Linux
+  pool:
+    vmImage: 'ubuntu-16.04'
+  steps:
+  - script: echo Building
+  - bash: |
+      $(aswfdocker) mkdir build
+      $(aswfdocker) install . --install-folder build/
+      $(aswfdocker) cd build && source activate.sh && source activate_run.sh && cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_paths.cmake && make -j 8
+    displayName: Build
