@@ -13,13 +13,13 @@ jobs:
   container: aloysbaillet/aswf-vfx2018-conan
   steps:
   - bash: |
-    mkdir build
-    conan install . --install-folder build/
+      mkdir build
+      conan install . --install-folder build/
     displayName: Prepare
   - bash: |
-    cd build
-    source activate.sh
-    source activate_run.sh
-    cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_paths.cmake
-    make -j8
+      cd build
+      source activate.sh
+      source activate_run.sh
+      cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_paths.cmake
+      make -j8
     displayName: Build
