@@ -10,14 +10,16 @@ jobs:
 - job: Linux
   pool:
     vmImage: 'ubuntu-16.04'
-  container: aloysbaillet/aswf-vfx2018-conan:latest
+  container: aloysbaillet/aswf-vfx2018-conan
   steps:
   - bash: |
     mkdir build
     conan install . --install-folder build/
+    displayName: Prepare
   - bash: |
     cd build
     source activate.sh
     source activate_run.sh
     cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_paths.cmake
     make -j8
+    displayName: Build
