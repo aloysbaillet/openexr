@@ -1,6 +1,8 @@
 OpenEXR
 =======
 
+[![Build Status](https://aloysbaillet.visualstudio.com/OpenEXR/_apis/build/status/aloysbaillet.openexr?branchName=testing_azure)](https://aloysbaillet.visualstudio.com/OpenEXR/_build/latest?definitionId=1&branchName=testing_azure)
+
 **OpenEXR** is a high dynamic-range (HDR) image file format developed
 by Industrial Light & Magic (ILM) for use in computer imaging
 applications. It supports stereoscopic and deep images.  Weta Digital,
