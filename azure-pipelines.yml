@@ -13,8 +13,6 @@ jobs:
   container: aloysbaillet/aswf-vfx2018-conan:latest
   steps:
   - bash: |
-      sudo chown default
-  - bash: |
       mkdir build
       conan install . --install-folder build/
     displayName: Prepare
