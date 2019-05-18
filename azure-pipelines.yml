@@ -27,5 +27,5 @@ jobs:
       cd build
       source activate.sh
       source activate_run.sh
-      ctest -VV
+      ctest -VV -E PyImathNumpyTest
     displayName: Test
